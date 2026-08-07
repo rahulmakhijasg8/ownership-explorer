@@ -29,7 +29,7 @@ app = FastAPI(title="Beneficial Ownership Explorer", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://ownership-explorer-chi.vercel.app/"],
+    allow_origins=["https://ownership-explorer-chi.vercel.app"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
