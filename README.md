@@ -9,7 +9,7 @@ Built with **CognoDB** (graph database, Neo4j-compatible over Bolt),
 > **Note:** All data is entirely fictional (generated with Faker). No real
 > people, companies, or ownership records are used.
 
-**Live demo:** _(link to be added)_
+**Live demo:** https://ownership-explorer-chi.vercel.app/
 
 ![Ownership result](screenshots/ownership.png)
 
