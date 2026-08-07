@@ -13,8 +13,6 @@ Talks to CognoDB via the shared Neo4j driver in db.py.
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
-from fastapi.staticfiles import StaticFiles
 from neo4j.exceptions import ServiceUnavailable
 
 from db import get_driver, close_driver
@@ -38,6 +36,10 @@ app.add_middleware(
 
 
 # ── Queries ──────────────────────────────────────────────────────────────────
+
+@app.get("/api/health")
+def health():
+    return {"status": "ok"}
 
 def run_search(q: str):
     driver = get_driver()
@@ -131,11 +133,3 @@ def shared_addresses():
         return run_shared_addresses()
     except ServiceUnavailable:
         raise HTTPException(status_code=503, detail="Database unavailable. Try again shortly.")
-
-
-# ── Serve the frontend ───────────────────────────────────────────────────────
-# (we'll create static/index.html in the next step)
-
-@app.get("/")
-def index():
-    return FileResponse("static/index.html")
