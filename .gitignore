@@ -1,0 +1,18 @@
+@"
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# Secrets — NEVER commit
+.env
+backend/.env
+frontend/.env
+
+# Node
+node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+"@ | Out-File -Encoding utf8 .gitignore
